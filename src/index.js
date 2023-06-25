@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client";
+import { StrictMode, useState } from "react";
+import PropTypes from "prop-types";
+import App from "./App-v1";
+import "./index.css";
+import StarRating from "./StarRating";
+const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+StarRating.propTypes = {
+  maxRating: PropTypes.number,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  defaultRating: PropTypes.number,
+  messages: PropTypes.array,
+  onSetRating: PropTypes.func,
+};
+
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <App />
-  </React.StrictMode>
+  </StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
